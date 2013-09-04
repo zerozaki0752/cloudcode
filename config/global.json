@@ -1,8 +1,8 @@
 {
-    "applicationName" : "cloudcode",
-    "applicationId": "wedl21dyr7so0p9lp42mcjh48clupo52vkmrcpt0gp72wtl1",
-    "applicationKey": "2xidwt2pi87pjiy9f849ki4zshj3e7dnxzpbfjuwuadebdkc",
+    "applicationName" : "d",
+    "applicationId": "28ferwlg9sncja6qw9ede6ruomjfed7lex4dljhlg80u23xl",
+    "applicationKey": "xj25ocmxj8cahecic82bfy9e79rctmf663jfn8ixh86eisl5",
     "global": {
-        "avVersion": "0.2.0"
+        "avVersion": "0.1.0"
     }
 }
