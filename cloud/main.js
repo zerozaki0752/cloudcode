@@ -1,41 +1,69 @@
 // Use AV.Cloud.define to define as many cloud functions as you want.
 // For example:
+//var name = require('cloud/name.js');
+//var user = require('cloud/user.js')
+
+//var XMPP_SEVER = "http://115.28.44.100:7070/http-bind/";
+//var XMPP_HOST = "@115.28.44.100";
+
+//var url = require('cloud/url.js')
+//var strophe = require('./strophejs/strophe.js')
+
 AV.Cloud.define("hello", function(request, response) {
   response.success("hello !" + request.params.name);
 });
 
-AV.Cloud.beforeSave("TestReview", function(request, response)
-            {
-                    if (request.object.get("stars") < 1)
-                    {
-                        response.error("you cannot give less than one star");
-                    }
-                    else if (request.object.get("stars") > 5)
-                    {
-                        response.error("you cannot give more than five stars");
-                    }
-                    else
-                    {
-                        var comment = request.object.get("comment");
-                        
-                        if (comment && comment.length > 140)
-                        {
-                            // 截断并添加...
-                            request.object.set("comment", comment.substring(0, 137) + "...");
-                        }
-                        response.success();
-                    }
-            });
+//注册
+AV.Cloud.define('register', function(request, response) {
 
-AV.Cloud.afterSave("TestReview", function(request) {
-                   var query = new AV.Query("TestPost");
-                   query.get(request.object.get("post").id, {
-                             success: function(post) {
-                             post.increment("comments");
-                             post.save();
-                             },
-                             error: function(error) {
-                             throw "Got an error " + error.code + " : " + error.message;
-                             }
-                             });
-                   });
+    var username = request.params.username;
+    var password = request.params.password;
+    var email = request.params.email;
+
+    if (username && password && email){
+                
+        var user = new AV.User();
+        user.set("username", username);
+        user.set("password", password);
+        user.set("email", email);
+        
+        strophe.
+                
+        user.signUp(null, {
+                success: function(user) {
+                    
+                    
+                    
+                },
+                error: function(user, error) {
+        
+                    alert("Error: " + error.code + " " + error.message);
+                    
+                }
+        });
+    }
+});
+
+//登录
+AV.Cloud.define('login', function(request, response) {
+                
+                var username = request.params.username;
+                var password = request.params.password;
+
+                
+                AV.User.logIn(username, password, {
+                              success: function(user) {
+                              // Do stuff after successful login.
+                              },
+                              error: function(user, error) {
+                              // The login failed. Check error to see why.
+                              }
+                              });
+});
+
+
+
+
+
+
+
