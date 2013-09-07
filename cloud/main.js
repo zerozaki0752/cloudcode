@@ -15,6 +15,7 @@ AV.Cloud.define('register', function(request, response) {
 
     if (username && password && email){
                 
+        
         var user = new AV.User();
         user.set("username", username);
         user.set("password", password);
@@ -22,11 +23,11 @@ AV.Cloud.define('register', function(request, response) {
                 
         user.signUp(null, {
                 success: function(user) {
-                    
+                    reponse.success(user);
                 },
                 error: function(user, error) {
         
-                    alert("Error: " + error.code + " " + error.message);
+                    reponse.error(user, error);
                     
                 }
         });
