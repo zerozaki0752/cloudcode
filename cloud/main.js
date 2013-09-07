@@ -1,13 +1,6 @@
 // Use AV.Cloud.define to define as many cloud functions as you want.
 // For example:
-//var name = require('cloud/name.js');
-//var user = require('cloud/user.js')
 
-//var XMPP_SEVER = "http://115.28.44.100:7070/http-bind/";
-//var XMPP_HOST = "@115.28.44.100";
-
-//var url = require('cloud/url.js')
-//var strophe = require('./strophejs/strophe.js')
 
 AV.Cloud.define("hello", function(request, response) {
   response.success("hello !" + request.params.name);
