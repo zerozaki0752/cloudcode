@@ -10,6 +10,7 @@
 //var strophe = require('./strophejs/strophe.js')
 
 AV.Cloud.define("hello", function(request, response) {
+<<<<<<< HEAD
   response.success("hello !" + request.params.name);
 });
 
@@ -67,3 +68,7 @@ AV.Cloud.define('login', function(request, response) {
 
 
 
+=======
+  response.success("Hello world!");
+});
+>>>>>>> 96491e41af86c6cb8f40d37942aa9cb5a1ef07a5
