@@ -20,17 +20,18 @@ AV.Cloud.define('register', function(request, response) {
         user.set("username", username);
         user.set("password", password);
         user.set("email", email);
+              
                 
+               
         user.signUp(null, {
                 success: function(user) {
-                    reponse.success("ok");
+                    
                 },
                 error: function(user, error) {
-        
-                    reponse.error("error");
-                    
+
                 }
         });
+            reponse.success("ok"); 
     }
 });
 
@@ -44,9 +45,11 @@ AV.Cloud.define('login', function(request, response) {
                 AV.User.logIn(username, password, {
                               success: function(user) {
                               // Do stuff after successful login.
+                              reponse.success("ok");
                               },
                               error: function(user, error) {
                               // The login failed. Check error to see why.
+                              reponse.error("error");
                               }
                               });
 });
