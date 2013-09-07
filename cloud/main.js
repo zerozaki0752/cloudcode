@@ -19,13 +19,9 @@ AV.Cloud.define('register', function(request, response) {
         user.set("username", username);
         user.set("password", password);
         user.set("email", email);
-        
-        strophe.
                 
         user.signUp(null, {
                 success: function(user) {
-                    
-                    
                     
                 },
                 error: function(user, error) {
