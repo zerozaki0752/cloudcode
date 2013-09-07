@@ -23,11 +23,11 @@ AV.Cloud.define('register', function(request, response) {
                 
         user.signUp(null, {
                 success: function(user) {
-                    reponse.success(user);
+                    reponse.success();
                 },
                 error: function(user, error) {
         
-                    reponse.error(user, error);
+                    reponse.error();
                     
                 }
         });
