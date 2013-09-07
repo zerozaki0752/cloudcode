@@ -25,13 +25,13 @@ AV.Cloud.define('register', function(request, response) {
                
         user.signUp(null, {
                 success: function(user) {
-                    
+                    response.success(user); 
                 },
                 error: function(user, error) {
-
+                    response.success(user, error); 
                 }
         });
-            reponse.success("ok"); 
+            
     }
 });
 
@@ -45,11 +45,11 @@ AV.Cloud.define('login', function(request, response) {
                 AV.User.logIn(username, password, {
                               success: function(user) {
                               // Do stuff after successful login.
-                              reponse.success("ok");
+                                response.success(user); 
                               },
                               error: function(user, error) {
                               // The login failed. Check error to see why.
-                              reponse.error("error");
+                                response.success(user, error); 
                               }
                               });
 });
